@@ -1,22 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          {'1. Allow user to upload image.'}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>
+            {'2. Allow user to crop image to a square.'}
+        </p>
+        <p>
+            {'3. Compress the image such that it is less than 1 mb and save it locally.'}
+        </p>
+        <p>
+            {'You can use any packages. Styling is not so important.'}
+        </p>
+        <button>
+            Upload image
+      </button>
       </header>
     </div>
   );
