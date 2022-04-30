@@ -1,4 +1,11 @@
-# Getting Started with Create React App
+# React Image upload, crop and save
+
+- Select a file
+- Resize the crop area as needed
+- Press 'Accept' button to download and save a copy of the cropped area
+  (Up to 1Mb in file size)
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

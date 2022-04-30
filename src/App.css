@@ -1,23 +1,37 @@
 .App {
-      height: 100vh;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    a {
-      color: #61dafb;
-    }
-    
-    input, textarea, label, button {
-      display: block;
-    }
-    
-    input, textarea, button {
-      width: 200px;
-      padding: 10px;
-    }
-    
-    input, textarea, button {
-      margin-bottom: 1em;
-    }
-    
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+a {
+  color: #61dafb;
+}
+
+input,
+textarea,
+label,
+button {
+  display: block;
+}
+
+input,
+textarea,
+button {
+  width: 200px;
+  padding: 10px;
+}
+
+input,
+textarea,
+button {
+  margin-bottom: 1em;
+}
+
+/* Styling is minmal here. In a real project I would probably use Styled Components or Tailwind */
+.App .controls {
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
