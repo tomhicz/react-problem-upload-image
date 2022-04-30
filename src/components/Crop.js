@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
+
+import { compressAccurately, downloadFile } from "image-conversion";
 
 export default function Crop() {
   //const allowedFileTypes = `image/gif image/png, image/jpeg, image/x-png`;
@@ -18,7 +20,8 @@ export default function Crop() {
     aspect: 1,
   });
   const [completedCrop, setCompletedCrop] = useState();
-  const [imageUrl, setImageUrl] = useState(undefined);
+  //const [imageUrl, setImageUrl] = useState(undefined);
+  const maxSize = 50; //max output size in Kb
 
   //Select files
 
@@ -39,9 +42,11 @@ export default function Crop() {
     userCrop(completedCrop);
   }
 
-  async function userCrop(crop) {
+  function userCrop(crop) {
     if (imgRef.current && crop.width && crop.height) {
-      await getCroppedImage(imgRef.current, crop, "newFile.jpeg");
+      getCroppedImage(imgRef.current, crop, "newFile.jpeg").then(
+        console.log("finished inner")
+      );
     }
     console.log("finished");
   }
@@ -75,15 +80,20 @@ export default function Crop() {
         window.URL.revokeObjectURL(imageURL);
         imageURL = window.URL.createObjectURL(blob);
         console.log(blob);
-        if (blob.size > 5000) {
+        if (blob.size > maxSize * 1024) {
           console.log("big");
+          compressAccurately(blob, maxSize).then((res) => {
+            //The res in the promise is a compressed Blob type (which can be treated as a File type) file;
+            downloadFile(res);
+          });
         } else {
           console.log("small");
+          downloadFile(blob);
         }
         resolve(imageURL);
-        setImageUrl(blob);
-        //window.location.replace(imageURL);
-      }, "image/jpeg");
+        //setImageUrl(blob);
+        //window.location.replace(imageURL); //to redirect to the blob
+      }, "image/png");
     });
   }
 
