@@ -135,7 +135,7 @@ export default function Crop() {
         onChange={onSelectFile}
         style={{ display: "none" }}
       />
-      <div className="controls">
+      <div className="controls flex flex-row justify-between p-2 bg-cyan-400">
         <Button text="Upload image" action={handleClick} />
         {Boolean(imgSrc) && <Button text="Accept" action={handleAcceptCrop} />}
       </div>
