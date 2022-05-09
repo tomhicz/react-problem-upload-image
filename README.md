@@ -1,9 +1,13 @@
 # React Image upload, crop and save
 
-- Select a file
-- Resize the crop area as needed
-- Press 'Accept' button to download and save a copy of the cropped area
-  (Up to 1Mb in file size)
+🖼️ Quick project to allow users to select an image file from their local device, crop and download a square image. 📂
+
+1. Select a file
+2. Resize the crop area as needed
+3. Press 'Accept' button to download and save a copy of the cropped area
+   (Up to 1Mb in file size)
+
+---
 
 ## Getting Started with Create React App
 
