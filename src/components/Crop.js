@@ -5,6 +5,8 @@ import "react-image-crop/dist/ReactCrop.css";
 
 import { compressAccurately, downloadFile } from "image-conversion";
 
+import Button from "./Button";
+
 // Make and center a % aspect crop using some helper functions.
 function centerAspectCrop(mediaWidth, mediaHeight, aspect) {
   return centerCrop(
@@ -134,8 +136,8 @@ export default function Crop() {
         style={{ display: "none" }}
       />
       <div className="controls">
-        <button onClick={handleClick}>Upload image</button>
-        {Boolean(imgSrc) && <button onClick={handleAcceptCrop}>Accept</button>}
+        <Button text="Upload image" action={handleClick} />
+        {Boolean(imgSrc) && <Button text="Accept" action={handleAcceptCrop} />}
       </div>
       {Boolean(imgSrc) && (
         <>
